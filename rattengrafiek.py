@@ -18,11 +18,14 @@ def add_entry(df_rats):
 
         if date_answer == 'yes':
             measurement_date = current_date
-        else:
+        elif date_answer == 'no':
             print('What was the date of measurement?')
             print('Please use the following format: dd-mm-yyyy')
             measurement_date = input('> ')
             measurement_date = dt.datetime.strptime(measurement_date, '%d-%m-%Y').date()
+        else:
+            print(f'{date_answer} is not yes / no.')
+            add_entry(df_rats)
 
         print(f"Insert name: {rats}")
         name = input('> ')
